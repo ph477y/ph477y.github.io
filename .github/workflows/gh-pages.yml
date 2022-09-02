@@ -1,5 +1,7 @@
 name: Build and deploy gh-pages site
 
+on: push
+
 jobs:
   build:
     runs-on: ubuntu-latest
