@@ -3,7 +3,7 @@ name: Build and deploy gh-pages site
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/znai' 
+    #if: github.ref == 'refs/heads/znai'
 
     steps:
       - uses: actions/checkout@v2
