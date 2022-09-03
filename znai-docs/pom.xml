@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.ph477y</groupId>
@@ -16,83 +17,45 @@
     <build>
         <plugins>
 
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-resources-plugin</artifactId>
-            <executions>
-                <execution>
-                    <phase>prepare-package</phase>
-                    <goals>
-                        <goal>resources</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>resources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
-        <plugin>
-            <groupId>org.testingisdocumenting.znai</groupId>
-            <artifactId>znai-maven-plugin</artifactId>
-            <version>${znai.version}</version>
-            <executions>
-                <execution>
-                    <id>build</id>
-                    <phase>prepare-package</phase>
-                    <goals>
-                        <goal>build</goal>
-                    </goals>
-                </execution>
-                <execution>
-                    <id>export</id>
-                    <phase>prepare-package</phase>
-                    <goals>
-                        <goal>export</goal>
-                    </goals>
-                </execution>
-                <execution>
-                    <id>validate-export</id>
-                    <phase>prepare-package</phase>
-                    <goals>
-                        <goal>build</goal>
-                    </goals>
-                    <configuration>
-                        <docId>znai-from-export</docId>
-                        <sourceRoot>${project.build.directory}/znai-export</sourceRoot>
-                    </configuration>
-                </execution>
-            </executions>
-            <configuration>
-                <docId>znai</docId>
-                <port>3334</port>
-            </configuration>
-            <dependencies>
-                <dependency>
-                    <groupId>junit</groupId>
-                    <artifactId>junit</artifactId>
-                    <version>${junit.version}</version>
-                    <classifier>sources</classifier>
-                </dependency>
-            </dependencies>
-        </plugin>
-
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <configuration>
-                <finalName>znai</finalName>
-                <descriptors>
-                    <descriptor>assembly.xml</descriptor>
-                </descriptors>
-            </configuration>
-            <executions>
-                <execution>
-                    <id>zip-docs-export</id>
-                    <phase>prepare-package</phase>
-                    <goals>
-                        <goal>single</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
+            <plugin>
+                <groupId>org.testingisdocumenting.znai</groupId>
+                <artifactId>znai-maven-plugin</artifactId>
+                <version>${znai.version}</version>
+                <executions>
+                    <execution>
+                        <id>build</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <docId>znai</docId>
+                    <port>3334</port>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>junit</groupId>
+                        <artifactId>junit</artifactId>
+                        <version>${junit.version}</version>
+                        <classifier>sources</classifier>
+                    </dependency>
+                </dependencies>
+            </plugin>
         </plugins>
     </build>
 
