@@ -31,10 +31,10 @@ jobs:
           run: mvn -B package -DskipTests
 
       - name: re-assemble znai for based cleanup
-        run: rm -rf znai-docs/target/znai-docs-*.jar znai-docs/target/maven-archiver
+        run: rm -rvf znai-docs/target/znai-docs-*.jar znai-docs/target/maven-archiver
 
       - name: create base index redirect page
-        run: cp znai-docs/index.html target/index.html
+        run: cp znai-docs/index.html znai-docs/target/index.html
              
              
       - name: Deploy
